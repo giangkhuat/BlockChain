@@ -4,7 +4,7 @@ package pc;
 
 public class Hash {
 
-	private byte[] hash;
+	protected byte[] hash;
 	public Hash(byte[] data) {
 		this.hash = data;
 	}
