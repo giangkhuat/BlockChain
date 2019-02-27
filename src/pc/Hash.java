@@ -18,14 +18,16 @@ public class Hash {
 	}
 
 	// method to return the string representation of the Hash
+		// method to return the string representation of the Hash
 	public String toString() {
-		String s1 = "";
-		for (int i = 0; i < this.hash.length; i++) {
-			int h = Byte.toUnsignedInt(this.hash[i]);
-			s1 = s1 + h;
-		}
-		return String.format("%x", s1);
+	  String hashStr = ""; 
+	// a loop that goes through the length of the hash
+      for(int i = 0; i < this.hash.length; i++){ 
+           hashStr+= String.format("%x", Byte.toUnsignedInt(this.hash[i]));
+      }
+      return hashStr;
 	}
+
 
 	public boolean equals(Object other) {
 		if (other instanceof Hash) {
