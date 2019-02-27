@@ -72,14 +72,23 @@ public class Block {
 	}
 
 	public String toString() {
-		String str = "";
-		str = str + "Block " + this.num + " (Amount: " + this.amount + ", Nonce: " + this.nonce + ", prevHash: "
-				+ this.prevHash.toString() + ", hash:" + this.hash.toString();
-		return str;
+	  String blockStr = "Block " + this.num + " (Amount: " + this.amount + ", Nonce: " + this.nonce;
+	  // if previous Hash is not null
+      if(this.prevHash != null){ 
+                  blockStr += ", prevHash: " + this.prevHash.toString();
+      }
+      // else print out null value for previous Hash
+      else {
+          blockStr += ", prevHash: " + "null";
+      }
+      blockStr += ", hash: " + this.hash.toString() + ")"; 
+		return blockStr;
 	}
 
 	public static Hash calculateHash(int num, int amount, Hash prev, long nonce) throws NoSuchAlgorithmException {
+	  // create the MessageDigest objetc with algorithm sha-256
 		MessageDigest md = MessageDigest.getInstance("sha-256");
+		// initialize and allocate s;aces for bytebuffer
 		ByteBuffer B = ByteBuffer.allocate(16);
 		B.putInt(num);
 		B.putInt(amount);

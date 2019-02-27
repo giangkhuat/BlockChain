@@ -1,5 +1,4 @@
 package pc;
-
 public class BlockChain {
 	//Block current
 	int num;
@@ -86,10 +85,12 @@ public class BlockChain {
 	public String toString() {
 		String str = "";
 		Node temp = this.first;
-		while (temp.next != null){
+		// change temp->next to temp
+		while (temp != null){
 			str = str + temp.b.toString() +"\n";
 			temp = temp.next;
 		}
 	return str;
 	}
 }
+
