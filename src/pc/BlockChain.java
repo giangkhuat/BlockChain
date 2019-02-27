@@ -1,44 +1,98 @@
 package pc;
 
 public class BlockChain {
-	Block current;
-	Block[] Chain;
-	int currentpos = 0;
+	//Block current
+	int num;
 	int remainingBal;
+	int initial;
+	// pointers to the first and last elements of the structure
+	Node first;
+	Node last;
+
+
 	public BlockChain(int initial) throws Exception{
-		Chain[currentpos] = new Block(0, initial, null);
+		byte[] bt = new byte[] { (byte)0xe0, 0x4f, (byte)0xd0,
+			    0x20, (byte)0xea, 0x3a, 0x69, 0x10, (byte)0xa2, (byte)0xd8, 0x08, 0x00, 0x2b,
+			    0x30, 0x30, (byte)0x9d };
+		this.num = 1;
+		Block b = new Block(0, initial, new Hash(bt));
+		this.first = new Node(b, null);
+		this.last = this.first;
+		this.remainingBal = initial;
+		this.initial = initial;
 	}
 	
-	public Block mine(int amount) {
-		if (remainingBal > amount) {
-			
+	static class Node {
+		Block b; 
+		Node next;
+		public Node(Block newB, Node nextNode) {
+			this.b = newB;
+			this.next = nextNode;
 		}
 	}
 	
-	public int getSize() {
-		
+	
+	public Block mine(int amount) throws Exception{
+			return new Block(this.num + 1, amount, this.last.b.getHash());
 	}
 	
-	public void append(Block blk) {
+	public int getSize() {
+		return this.num;
+	}
+	
+	public void append(Block blk) throws Exception{
+		if (remainingBal < blk.amount) {
+			throw new Exception ("No money.");
+		}
+		this.last.next = new Node (blk, null);
+		this.last = this.last.next;
+		num++;
+		remainingBal += blk.amount;
 	}
 	
 	public Boolean removeLast() {
-		
+		if (num <= 1) {
+			return false;
+		}
+		else {
+			Node temp = this.first;
+			this.last = null;
+			num--;
+			for (int i = 0; i < num; i++){
+				temp = temp.next;
+			}
+			this.last = temp;
+			return true;
+		}
 	}
 	
 	public Hash getHash() {
-		
+		return last.b.getHash();
 	}
 	
 	public boolean isValidBlockChain() {
-		
+		Node temp = this.first;
+		while (temp.next != null){
+			if (temp.b.getHash() != temp.next.b.getPrevHash()){
+				return false;
+			}
+			temp = temp.next;
+		}
+		return true;
 	}
 	
 	public void PrintBalances() {
-		
+		int bobBalance = this.initial - this.remainingBal;
+		System.out.println("Alice: " + this.remainingBal + ", Bob: " + bobBalance);
 	}
 	
 	public String toString() {
-		
+		String str = "";
+		Node temp = this.first;
+		while (temp.next != null){
+			str = str + temp.b.toString() +"\n";
+			temp = temp.next;
+		}
+	return str;
 	}
 }

@@ -21,10 +21,19 @@ public class Block {
 		// else keep iterating
 		Random nonceNum = new Random();
 		this.nonce = nonceNum.nextLong();
-		this.hash.hash = calculateHash(this.num, this.amount, this.prevHash, this.nonce);
-		while (!this.hash.isValid() && this.hash.hash != this.prevHash.getData()) {
-			this.hash.hash = calculateHash(this.num, this.amount, this.prevHash, this.nonce);
-			// this nonce++ ?
+		this.hash = calculateHash(this.num, this.amount, this.prevHash, this.nonce);
+		if (this.prevHash != null) {
+			while (!this.hash.isValid() && this.hash.hash != this.prevHash.getData()) {
+				this.nonce = nonceNum.nextLong();
+				this.hash = calculateHash(this.num, this.amount, this.prevHash, this.nonce);
+				// this nonce++ ?
+			}
+		}
+		else {
+			while (!this.hash.isValid()){
+				this.nonce = nonceNum.nextLong();
+				this.hash = calculateHash(this.num, this.amount, this.prevHash, this.nonce);
+			}
 		}
 	}
 
@@ -36,9 +45,9 @@ public class Block {
 		// if this nonce can be used to produce a valid Hash, then break out of the loop
 		// else keep iterating
 		this.nonce = nonce;
-		this.hash.hash = calculateHash(this.num, this.amount, this.prevHash, this.nonce);
+		this.hash = calculateHash(this.num, this.amount, this.prevHash, this.nonce);
 		while (!this.hash.isValid() && this.hash.hash != this.prevHash.getData()) {
-			this.hash.hash = calculateHash(this.num, this.amount, this.prevHash, this.nonce);
+			this.hash = calculateHash(this.num, this.amount, this.prevHash, this.nonce);
 		}
 	}
 
@@ -64,11 +73,12 @@ public class Block {
 
 	public String toString() {
 		String str = "";
-		str = str + "Block " + this.num + " (Amount: " + this.amount + ", Nonce: " + this.nonce + ", prevHash: " + this.prevHash + ", hash:" + this.hash;
+		str = str + "Block " + this.num + " (Amount: " + this.amount + ", Nonce: " + this.nonce + ", prevHash: "
+				+ this.prevHash.toString() + ", hash:" + this.hash.toString();
 		return str;
 	}
 
-	public static byte[] calculateHash(int num, int amount, Hash prev, long nonce) throws NoSuchAlgorithmException {
+	public static Hash calculateHash(int num, int amount, Hash prev, long nonce) throws NoSuchAlgorithmException {
 		MessageDigest md = MessageDigest.getInstance("sha-256");
 		ByteBuffer B = ByteBuffer.allocate(16);
 		B.putInt(num);
@@ -80,6 +90,6 @@ public class Block {
 		}
 		md.update(byteArray);
 		byte[] hash = md.digest();
-		return hash;
+		return new Hash(hash);
 	} // calculateHash(String)
 }
