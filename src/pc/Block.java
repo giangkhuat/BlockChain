@@ -24,6 +24,7 @@ public class Block {
 		this.hash.hash = calculateHash(this.num, this.amount, this.prevHash, this.nonce);
 		while (!this.hash.isValid() && this.hash.hash != this.prevHash.getData()) {
 			this.hash.hash = calculateHash(this.num, this.amount, this.prevHash, this.nonce);
+			// this nonce++ ?
 		}
 	}
 
