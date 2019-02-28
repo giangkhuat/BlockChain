@@ -1,0 +1,58 @@
+Test 1:
+Valid commands:
+    mine: discovers the nonce for a given transaction
+    append: appends a new block onto the end of the chain
+    remove: removes the last block from the end of the chain
+    check: checks that the block chain is valid
+    report: reports the balances of Alice and Bob
+    help: prints this list of commands
+    quit: quits the program 
+
+Block 0 (Amount: 300, Nonce: 9324351, prevHash: null, hash: 000201f6c32c24b52b8a5b7d664af23e7db95af8867dbe80eb5c4c30a7)
+
+Command?   mine
+Amount Transfered?  -150
+amount = -150, nonce = 36557018
+
+Block 0 (Amount: 300, Nonce: 9324351, prevHash: null, hash: 000201f6c32c24b52b8a5b7d664af23e7db95af8867dbe80eb5c4c30a7)
+
+Command?   append
+Amount Transfered?   -150
+Nonce?   36557018
+
+Block 0 (Amount: 300, Nonce: 9324351, prevHash: null, hash: 000201f6c32c24b52b8a5b7d664af23e7db95af8867dbe80eb5c4c30a7)
+Block 1 (Amount: -150, Nonce: 36557018, prevHash: 000201f6c32c24b52b8a5b7d664af23e7db95af8867dbe80eb5c4c30a7, hash: 0001db31b54c1fa13766255ac2696ba08d7824a3d0d44dee4cd8cdefe3b)
+
+Command?   mine
+Amount Transfered?  -100
+amount = -100, nonce = 11251654
+
+Block 0 (Amount: 300, Nonce: 9324351, prevHash: null, hash: 000201f6c32c24b52b8a5b7d664af23e7db95af8867dbe80eb5c4c30a7)
+Block 1 (Amount: -150, Nonce: 36557018, prevHash: 000201f6c32c24b52b8a5b7d664af23e7db95af8867dbe80eb5c4c30a7, hash: 0001db31b54c1fa13766255ac2696ba08d7824a3d0d44dee4cd8cdefe3b)
+
+Command?   append
+Amount Transfered?   -100
+Nonce?   11251654
+
+Block 0 (Amount: 300, Nonce: 9324351, prevHash: null, hash: 000201f6c32c24b52b8a5b7d664af23e7db95af8867dbe80eb5c4c30a7)
+Block 1 (Amount: -150, Nonce: 36557018, prevHash: 000201f6c32c24b52b8a5b7d664af23e7db95af8867dbe80eb5c4c30a7, hash: 0001db31b54c1fa13766255ac2696ba08d7824a3d0d44dee4cd8cdefe3b)
+Block 2 (Amount: -100, Nonce: 11251654, prevHash: 0001db31b54c1fa13766255ac2696ba08d7824a3d0d44dee4cd8cdefe3b, hash: 000d6585f1426527ee8e3430e2c76a9a9a97688dffe888b56bddda354baf)
+
+Command?   mine
+Amount Transfered?  50
+amount = 50, nonce = 1610305
+
+Block 0 (Amount: 300, Nonce: 9324351, prevHash: null, hash: 000201f6c32c24b52b8a5b7d664af23e7db95af8867dbe80eb5c4c30a7)
+Block 1 (Amount: -150, Nonce: 36557018, prevHash: 000201f6c32c24b52b8a5b7d664af23e7db95af8867dbe80eb5c4c30a7, hash: 0001db31b54c1fa13766255ac2696ba08d7824a3d0d44dee4cd8cdefe3b)
+Block 2 (Amount: -100, Nonce: 11251654, prevHash: 0001db31b54c1fa13766255ac2696ba08d7824a3d0d44dee4cd8cdefe3b, hash: 000d6585f1426527ee8e3430e2c76a9a9a97688dffe888b56bddda354baf)
+
+Command?   append
+Amount Transfered?   50
+Nonce?   1610305
+
+Block 0 (Amount: 300, Nonce: 9324351, prevHash: null, hash: 000201f6c32c24b52b8a5b7d664af23e7db95af8867dbe80eb5c4c30a7)
+Block 1 (Amount: -150, Nonce: 36557018, prevHash: 000201f6c32c24b52b8a5b7d664af23e7db95af8867dbe80eb5c4c30a7, hash: 0001db31b54c1fa13766255ac2696ba08d7824a3d0d44dee4cd8cdefe3b)
+Block 2 (Amount: -100, Nonce: 11251654, prevHash: 0001db31b54c1fa13766255ac2696ba08d7824a3d0d44dee4cd8cdefe3b, hash: 000d6585f1426527ee8e3430e2c76a9a9a97688dffe888b56bddda354baf)
+Block 3 (Amount: 50, Nonce: 1610305, prevHash: 000d6585f1426527ee8e3430e2c76a9a9a97688dffe888b56bddda354baf, hash: 0008eba92d38b1f8483b9224c7122d4a0f293655ded4e505bb62193a0d7)
+
+Test 2:
