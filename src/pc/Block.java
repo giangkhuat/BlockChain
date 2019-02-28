@@ -55,7 +55,7 @@ public class Block {
 
 	// 2nd constructor that takes in num, amount, prevHash, nonce.
 	// The block will be created even if it is invalid.
-    // Produce: block, a Block object
+        // Produce: block, a Block object
 	// Pre-conditions: 
 	//   num is a nonnegative integer
 	//   amount is a nonnegative integer
