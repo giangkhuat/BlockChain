@@ -5,7 +5,12 @@ Giang Khuat and Ryuta Kure
 This is a program that serves as a BlockChain, which utilizes complicated methods to ensure data correctedness. 
 
 Sources used:
+
 Owen (CS tutor)
+
 References from CSC207 Assignment5 Guidelines
-Our brains
+
+
 http://javadevnotes.com/java-long-to-string-examples
+
+A past CSC207 student's code: https://github.com/devnalwa/csc207-blockchain
