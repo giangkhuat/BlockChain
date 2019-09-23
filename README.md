@@ -1,16 +1,18 @@
-# BlockChain
+# A program to simulate the development of a Blockchain
+
 This is an assignment for class CSC207 Spring 2019 
-Giang Khuat and Ryuta Kure
+Author: Giang Khuat and Ryuta Kure
 
-This is a program that serves as a BlockChain, which utilizes complicated methods to ensure data correctedness. 
-
-Sources used:
-
-Owen (CS tutor)
-
-References from CSC207 Assignment5 Guidelines
+# Introduction
 
 
-http://javadevnotes.com/java-long-to-string-examples
 
-A past CSC207 student's code: https://github.com/devnalwa/csc207-blockchain
+# Program Description
+
+# References
+* [CSC207 Assignment5 Guidelines](https://www.cs.grinnell.edu/~rebelsky/Courses/CSC207/2019S/02/assignments/assignment05.html)
+* [Past CSC207 student's github](https://github.com/devnalwa/csc207-blockchain)
+* [Java Dev Notes](http://javadevnotes.com/java-long-to-string-examples)
+
+
+
