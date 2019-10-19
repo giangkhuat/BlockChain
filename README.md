@@ -1,7 +1,7 @@
 # A program to simulate the development of a Blockchain
 
 This is an assignment for class CSC207 Spring 2019 
-Author: Giang Khuat and Ryuta Kure
+Author: Giang Khuat
 
 # Introduction
 
